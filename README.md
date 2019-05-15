@@ -1,7 +1,6 @@
 ---
 title: Quick presentation with Reveal.js and Pandoc
 author: Johan Hidding
-parallaxBackgroundImage: img/Escience_artwork6.jpg
 ---
 
 # Reveal.js with NLeSC theme
@@ -9,6 +8,7 @@ parallaxBackgroundImage: img/Escience_artwork6.jpg
 ## Prerequisites
 
 * make
+* inotifytools
 * git
 * Pandoc
 * for the NLeSC theme: Akkurat fonts
