@@ -12,10 +12,10 @@ reveal.js/index.html: reveal.js README.md Makefile
 		-V revealjs-url=$(revealjs_url) \
 		-V theme=$(theme)
 
-reveal.js/img: img
+reveal.js/img: | reveal.js img
 	cd reveal.js && ln -s ../img .
 
-reveal.js/css/theme/source/nlesc.scss: theme/nlesc.scss
+reveal.js/css/theme/source/nlesc.scss: reveal.js theme/nlesc.scss
 	cp theme/nlesc.scss reveal.js/css/theme/source
 
 reveal.js:

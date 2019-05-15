@@ -5,6 +5,10 @@ author: Johan Hidding
 
 # Reveal.js with NLeSC theme
 
+## What is this?
+
+A template for creating slides with NLeSC look. It uses `pandoc` to produce `reveal.js` slides.
+
 ## Prerequisites
 
 * make
