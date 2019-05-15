@@ -11,7 +11,7 @@ author: Johan Hidding
 * inotifytools
 * git
 * Pandoc
-* for the NLeSC theme: Akkurat fonts
+* for the NLeSC theme: Akkurat fonts (available on NLeSC SharePoint)
 
 ## Working on your presentation
 
