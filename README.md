@@ -9,6 +9,8 @@ author: Johan Hidding
 
 A template for creating slides with NLeSC look. It uses `pandoc` to produce `reveal.js` slides.
 
+Clone this repository at: [github.com/jhidding/nlesc-revealjs](https://github.com/jhidding/nlesc-revealjs)
+
 ## Prerequisites
 
 * make
