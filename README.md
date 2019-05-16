@@ -47,4 +47,5 @@ This is a note right here!
 
 * Study the `Makefile`
 * [Pandoc manual](https://pandoc.org/MANUAL.html)
+* [Reveal.js README](https://github.com/hakimel/reveal.js/blob/master/README.md)
 
