@@ -27,8 +27,22 @@ A template for creating slides with NLeSC look. It uses `pandoc` to produce `rev
 ## While presenting
 
 * press `s` to show speaker notes
+    - This only works if you present using `npm start`
 
 ::: {.notes}
 This is a note right here!
 :::
+
+## Publish on Github.io
+
+* Create a static page with `make pages`
+* Enable `github.io` pages:
+    - Go to Github project settings
+    - Section "GitHub Pages"
+    - set "Source" to "master branch '/docs' folder"
+
+## Learn more
+
+* Study the `Makefile`
+* [Pandoc manual](https://pandoc.org/MANUAL.html)
 
