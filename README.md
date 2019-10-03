@@ -22,7 +22,7 @@ author: Johan Hidding
 
 * First time, running `make` should clone `reveal.js` for you.
 * Run `npm start` from the `reveal.js` directory to serve your presentation.
-* Run `inotify-make.sh` script to automatically update from Markdown to HTML.
+* Run `make watch` script to automatically update while editing.
 * Build themes: `npm run build -- css-themes`
 
 ## While presenting
