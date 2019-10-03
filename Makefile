@@ -78,7 +78,7 @@ reveal.js/css/theme/nlesc.css: reveal.js/css/theme/source/nlesc.scss
 
 reveal.js:
 	git clone https://github.com/hakimel/reveal.js.git
-	cd reveal.js && npm install
+	cd reveal.js && npm install && npm audit fix
 
 docs:
 	mkdir docs
