@@ -38,7 +38,7 @@ help:
 	| fold -s -w 80
 
 #| * `watch`: reload browser upon changes
-watch: reveal.js/index.html reveal.js/css/theme/source/nlesc.scss reveal.js/img
+watch: reveal.js/index.html reveal.js/css/theme/nlesc.css reveal.js/img
 	@tmux new-session make --no-print-directory watch-pandoc \; \
 		split-window -v make --no-print-directory watch-reveal \; \
 		select-layout even-vertical \;
@@ -77,11 +77,15 @@ reveal.js/css/theme/nlesc.css: reveal.js/css/theme/source/nlesc.scss
 	cd reveal.js && npm run build -- css-themes
 
 reveal.js:
-	git clone https://github.com/hakimel/reveal.js.git
+	if [ -d "reveal.js" ]; then \
+		cd reveal.js && git pull origin master; \
+	else \
+		git clone https://github.com/hakimel/reveal.js.git; \
+	fi
 	cd reveal.js && npm install && npm audit fix
 
 docs:
-	mkdir docs
+	mkdir -p docs
 	touch docs/.nojekyll
 
 docs/img: img | docs
