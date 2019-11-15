@@ -125,7 +125,7 @@ int main(int argc, char **argv) {
 - Tangle and stitch
 - Editor independent
 - Language independent
-- Demo
+- [jhidding.github.io/enTangleD](https://jhidding.github.io/enTangleD)
 ::::
 :::: {.col}
 ![](img/entangled.jpg){style="width:60%"}
