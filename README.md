@@ -1,50 +1,135 @@
 ---
-title: Quick presentation with Reveal.js and Pandoc
-author: Johan Hidding
+title: Literate Programming
+subtitle: why it matters, and how to make it easy
+author: "Johan Hidding <div><img src=\"img/escience.png\" style=\"border: none; padding: 5pt 10pt\" width=\"40%\"></div>"
+bibliography: ref.bib
 ---
 
-# Reveal.js with NLeSC theme
+# Literate Programming
 
-## What is this?
+## Donald Knuth
 
-* A template for creating slides with NLeSC look. It uses `pandoc` to produce `reveal.js` slides.
-* Clone this repository at: [github.com/jhidding/nlesc-revealjs](https://github.com/jhidding/nlesc-revealjs)
-
-## Prerequisites
-
-* make
-* inotifytools
-* git
-* Pandoc
-* for the NLeSC theme: Akkurat fonts (available on NLeSC SharePoint)
-
-## Working on your presentation
-
-* First time, running `make` should clone `reveal.js` for you.
-* Run `npm start` from the `reveal.js` directory to serve your presentation.
-* Run `make watch` script to automatically update while editing.
-* Build themes: `npm run build -- css-themes`
-
-## While presenting
-
-* press `s` to show speaker notes
-    - This only works if you present using `npm start`
+![Donald Knuth](img/knuth.jpg)
 
 ::: {.notes}
-This is a note right here!
+- Donald Knuth: “The Art of Computer Programming”, “Surreal Numbers”
+- Inventor of literate programming
+- “nobody wants to admit writing an illiterate program”
 :::
 
-## Publish on Github.io
+## Why *Literate programming*?
 
-* Create a static page with `make pages`
-* Enable `github.io` pages:
-    - Go to Github project settings
-    - Section "GitHub Pages"
-    - set "Source" to "master branch '/docs' folder"
+![](img/chimp.jpg){style="border: none; width: 40%"}
 
-## Learn more
+> ... nobody wants to admit writing an illiterate program ...
 
-* Study the `Makefile`
-* [Pandoc manual](https://pandoc.org/MANUAL.html)
-* [Reveal.js README](https://github.com/hakimel/reveal.js/blob/master/README.md)
+## Motivation
+
+scientific rigour
+: Should extend to **software** $\to$ "Open Science"
+
+epistemology
+: Explain it to a six-year old
+
+programming literacy
+: Read other people's code
+
+::: {.notes}
+- Epistemology: theory of knowledge
+- When can we say we know something?
+- example: relativity.
+- Scientists are not trained programmers.
+- Need code exposure
+:::
+
+## Books
+
+![A sample of books using LP](img/boeken.jpg)
+
+## Existing tools
+
+- Noweb
+- Emacs Org-mode
+- KnitR
+- Jupyter
+
+## Tools and workflow
+
+::: {.container}
+:::: {.col}
+- Pandoc
+- Lua filters
+- Entangled
+::::
+
+:::: {.col}
+![](img/lp.svg)
+::::
+:::
+
+# Hello, World!
+
+## Introduction
+- This example is written in a style of *literate programming* [@Knuth1984].
+- We use a system of references known as *noweb* [@Ramsey1994].
+
+## References
+- References inside code blocks: `<<...>>`
+
+``` {.cpp file=hello_world.cc}
+#include <cstdlib>
+#include <iostream>
+
+<<example-main-function>>
+```
+
+## References
+- Code-blocks have names
+
+``` {.cpp #example-main-function}
+int main(int argc, char **argv) {
+  <<hello-world>>
+}
+```
+
+``` {.cpp #hello-world}
+std::cout << "Hello, World!" << std::endl;
+```
+
+## References
+* And can be appended to
+
+``` {.cpp #hello-world}
+return EXIT_SUCCESS;
+```
+
+## Tangling
+* Code blocks are *tangled* into source files.
+
+``` {.cpp file=hello_world.cc}
+#include <cstdlib>
+#include <iostream>
+
+int main(int argc, char **argv) {
+    std::cout << "Hello, World!" << std::endl;
+    return EXIT_SUCCESS;
+}
+```
+
+# Entangled
+
+## Entangled
+
+::: {.container}
+:::: {.col}
+- Tangle and stitch
+- Editor independent
+- Language independent
+- Demo
+::::
+:::: {.col}
+![](img/entangled.jpg){style="width:60%"}
+::::
+:::
+## Bibliography
 

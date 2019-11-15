@@ -23,6 +23,7 @@ theme = nlesc
 source = README.md
 
 pandoc_args := -s -t revealjs
+pandoc_args += --filter pandoc-citeproc
 pandoc_args += -V revealjs-url=https://revealjs.com
 pandoc_args += --css nlesc.css
 
@@ -61,8 +62,10 @@ pages: docs docs/img docs/index.html docs/nlesc.css
 
 # Rules ============================================
 
-reveal.js/index.html: $(source) | reveal.js
+reveal.js/index.html: $(source) annotate-code-blocks.lua | reveal.js
 	pandoc -t revealjs -s -o ./reveal.js/index.html \
+		--filter pandoc-citeproc \
+		--lua-filter annotate-code-blocks.lua \
 		$(source) --mathjax \
 		-V revealjs-url=$(revealjs_url) \
 		-V theme=$(theme)
