@@ -57,7 +57,7 @@ programming literacy
 
 ::: {.container}
 :::: {.col}
-- Pandoc
+- Pandoc [@Pandoc]
 - Lua filters
 - Entangled
 ::::
@@ -70,8 +70,8 @@ programming literacy
 # Hello, World!
 
 ## Introduction
-- This example is written in a style of *literate programming* [@Knuth1984].
-- We use a system of references known as *noweb* [@Ramsey1994].
+- *Literate programming* [@Knuth1984].
+- System of references: *noweb* [@Ramsey1994].
 
 ## References
 - References inside code blocks: `<<...>>`
@@ -131,5 +131,22 @@ int main(int argc, char **argv) {
 ![](img/entangled.jpg){style="width:60%"}
 ::::
 :::
+
+## Entangled
+
+::: {.container}
+:::: {.col}
+- Tangle: generates source code from Markdown
+- Stitch: changes are pushed back to the Markdown
+- [jhidding.github.io/enTangleD](https://jhidding.github.io/enTangleD)
+
+![](img/logo.svg){style="border:none;padding:15pt;width:80%"}
+::::
+
+:::: {.col}
+![](img/lp-colour.svg)
+::::
+:::
+
 ## Bibliography
 
