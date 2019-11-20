@@ -101,6 +101,7 @@ docs/index.html: $(source) Makefile | docs
 	pandoc -t revealjs -s -o ./docs/index.html \
 		$(source) --mathjax \
 		--filter pandoc-citeproc \
+		--lua-filter annotate-code-blocks.lua \
 		-V revealjs-url=https://revealjs.com \
 		--css nlesc.css
 
