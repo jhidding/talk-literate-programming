@@ -3,8 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <meta name="author" content="Johan Hidding">
-  <title>Quick presentation with Reveal.js and Pandoc</title>
+  <title>Literate Programming</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -15,6 +14,70 @@
       span.smallcaps{font-variant: small-caps;}
       span.underline{text-decoration: underline;}
       div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style>
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="https://revealjs.com/css/theme/black.css" id="theme">
   <link rel="stylesheet" href="nlesc.css"/>
@@ -35,62 +98,168 @@
     <div class="slides">
 
 <section id="title-slide">
-  <h1 class="title">Quick presentation with Reveal.js and Pandoc</h1>
-  <p class="author">Johan Hidding</p>
+  <h1 class="title">Literate Programming</h1>
+  <p class="subtitle">why it matters, and how to make it easy</p>
+  <p class="author">Johan Hidding
+<div>
+<img src="img/escience.png" style="border: none; padding: 5pt 10pt" width="40%">
+</div></p>
 </section>
 
-<section><section id="reveal.js-with-nlesc-theme" class="title-slide slide level1"><h1>Reveal.js with NLeSC theme</h1></section><section id="what-is-this" class="slide level2">
-<h2>What is this?</h2>
-<ul>
-<li>A template for creating slides with NLeSC look. It uses <code>pandoc</code> to produce <code>reveal.js</code> slides.</li>
-<li>Clone this repository at: <a href="https://github.com/jhidding/nlesc-revealjs">github.com/jhidding/nlesc-revealjs</a></li>
-</ul>
-</section><section id="prerequisites" class="slide level2">
-<h2>Prerequisites</h2>
-<ul>
-<li>make</li>
-<li>inotifytools</li>
-<li>git</li>
-<li>Pandoc</li>
-<li>for the NLeSC theme: Akkurat fonts (available on NLeSC SharePoint)</li>
-</ul>
-</section><section id="working-on-your-presentation" class="slide level2">
-<h2>Working on your presentation</h2>
-<ul>
-<li>First time, running <code>make</code> should clone <code>reveal.js</code> for you.</li>
-<li>Run <code>npm start</code> from the <code>reveal.js</code> directory to serve your presentation.</li>
-<li>Run <code>make watch</code> script to automatically update while editing.</li>
-<li>Build themes: <code>npm run build -- css-themes</code></li>
-</ul>
-</section><section id="while-presenting" class="slide level2">
-<h2>While presenting</h2>
-<ul>
-<li>press <code>s</code> to show speaker notes
-<ul>
-<li>This only works if you present using <code>npm start</code></li>
-</ul></li>
-</ul>
+<section><section id="literate-programming" class="title-slide slide level1"><h1>Literate Programming</h1></section><section id="donald-knuth" class="slide level2">
+<h2>Donald Knuth</h2>
+<figure>
+<img data-src="img/knuth.jpg" alt="" /><figcaption>Donald Knuth</figcaption>
+</figure>
 <aside class="notes">
-<p>This is a note right here!</p>
+<ul>
+<li>Donald Knuth: “The Art of Computer Programming”, “Surreal Numbers”</li>
+<li>Inventor of literate programming</li>
+<li>“nobody wants to admit writing an illiterate program”</li>
+</ul>
 </aside>
-</section><section id="publish-on-github.io" class="slide level2">
-<h2>Publish on Github.io</h2>
+</section><section id="why-literate-programming" class="slide level2">
+<h2>Why <em>Literate programming</em>?</h2>
+<p><img data-src="img/chimp.jpg" style="border: none; width: 40%" /></p>
+<blockquote>
+<p>… nobody wants to admit writing an illiterate program …</p>
+</blockquote>
+</section><section id="motivation" class="slide level2">
+<h2>Motivation</h2>
+<dl>
+<dt>scientific rigour</dt>
+<dd>Should extend to <strong>software</strong> <span class="math inline">\(\to\)</span> “Open Science”
+</dd>
+<dt>epistemology</dt>
+<dd>Explain it to a six-year old
+</dd>
+<dt>programming literacy</dt>
+<dd>Read other people’s code
+</dd>
+</dl>
+<aside class="notes">
 <ul>
-<li>Create a static page with <code>make pages</code></li>
-<li>Enable <code>github.io</code> pages:
-<ul>
-<li>Go to Github project settings</li>
-<li>Section “GitHub Pages”</li>
-<li>set “Source” to “master branch ‘/docs’ folder”</li>
-</ul></li>
+<li>Epistemology: theory of knowledge</li>
+<li>When can we say we know something?</li>
+<li>example: relativity.</li>
+<li>Scientists are not trained programmers.</li>
+<li>Need code exposure</li>
 </ul>
-</section><section id="learn-more" class="slide level2">
-<h2>Learn more</h2>
+</aside>
+</section><section id="books" class="slide level2">
+<h2>Books</h2>
+<figure>
+<img data-src="img/boeken.jpg" alt="" /><figcaption>A sample of books using LP</figcaption>
+</figure>
+</section><section id="existing-tools" class="slide level2">
+<h2>Existing tools</h2>
 <ul>
-<li>Study the <code>Makefile</code></li>
-<li><a href="https://pandoc.org/MANUAL.html">Pandoc manual</a></li>
-<li><a href="https://github.com/hakimel/reveal.js/blob/master/README.md">Reveal.js README</a></li>
+<li>Noweb</li>
+<li>Emacs Org-mode</li>
+<li>KnitR</li>
+<li>Jupyter</li>
 </ul>
+</section><section id="tools-and-workflow" class="slide level2">
+<h2>Tools and workflow</h2>
+<div class="container">
+<div class="col">
+<ul>
+<li>Pandoc <span class="citation" data-cites="Pandoc">(Pandoc Development Team 2019)</span></li>
+<li>Lua filters</li>
+<li>Entangled</li>
+</ul>
+</div>
+<div class="col">
+<p><img data-src="img/lp.svg" /></p>
+</div>
+</div>
+</section></section>
+<section><section id="hello-world" class="title-slide slide level1"><h1>Hello, World!</h1></section><section id="introduction" class="slide level2">
+<h2>Introduction</h2>
+<ul>
+<li><em>Literate programming</em> <span class="citation" data-cites="Knuth1984">(Knuth 1984)</span>.</li>
+<li>System of references: <em>noweb</em> <span class="citation" data-cites="Ramsey1994">(Ramsey 1994)</span>.</li>
+</ul>
+</section><section id="references" class="slide level2">
+<h2>References</h2>
+<ul>
+<li>References inside code blocks: <code>&lt;&lt;...&gt;&gt;</code></li>
+</ul>
+<div class="sourceCode" id="cb1" data-file="hello_world.cc"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1"></a><span class="pp">#include </span><span class="im">&lt;cstdlib&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a>&lt;&lt;example-main-function&gt;&gt;</span></code></pre></div>
+</section><section id="references-1" class="slide level2">
+<h2>References</h2>
+<ul>
+<li>Code-blocks have names</li>
+</ul>
+<div class="sourceCode" id="example-main-function"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="example-main-function-1"><a href="#example-main-function-1"></a><span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span> **argv) {</span>
+<span id="example-main-function-2"><a href="#example-main-function-2"></a>  &lt;&lt;hello-world&gt;&gt;</span>
+<span id="example-main-function-3"><a href="#example-main-function-3"></a>}</span></code></pre></div>
+<div class="sourceCode" id="hello-world"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="hello-world-1"><a href="#hello-world-1"></a><span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Hello, World!&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span></code></pre></div>
+</section><section id="references-2" class="slide level2">
+<h2>References</h2>
+<ul>
+<li>And can be appended to</li>
+</ul>
+<div class="sourceCode" id="hello-world"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="hello-world-1"><a href="#hello-world-1"></a><span class="cf">return</span> EXIT_SUCCESS;</span></code></pre></div>
+</section><section id="tangling" class="slide level2">
+<h2>Tangling</h2>
+<ul>
+<li>Code blocks are <em>tangled</em> into source files.</li>
+</ul>
+<div class="sourceCode" id="cb2" data-file="hello_world.cc"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1"></a><span class="pp">#include </span><span class="im">&lt;cstdlib&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="dt">int</span> main(<span class="dt">int</span> argc, <span class="dt">char</span> **argv) {</span>
+<span id="cb2-5"><a href="#cb2-5"></a>    <span class="bu">std::</span>cout &lt;&lt; <span class="st">&quot;Hello, World!&quot;</span> &lt;&lt; <span class="bu">std::</span>endl;</span>
+<span id="cb2-6"><a href="#cb2-6"></a>    <span class="cf">return</span> EXIT_SUCCESS;</span>
+<span id="cb2-7"><a href="#cb2-7"></a>}</span></code></pre></div>
+</section></section>
+<section><section id="entangled" class="title-slide slide level1"><h1>Entangled</h1></section><section id="entangled-1" class="slide level2">
+<h2>Entangled</h2>
+<div class="container">
+<div class="col">
+<ul>
+<li>Tangle and stitch</li>
+<li>Editor independent</li>
+<li>Language independent</li>
+<li><a href="https://jhidding.github.io/enTangleD">jhidding.github.io/enTangleD</a></li>
+</ul>
+</div>
+<div class="col">
+<p><img data-src="img/entangled.jpg" style="width:60%" /></p>
+</div>
+</div>
+</section><section id="entangled-2" class="slide level2">
+<h2>Entangled</h2>
+<div class="container">
+<div class="col">
+<ul>
+<li>Tangle: generates source code from Markdown</li>
+<li>Stitch: changes are pushed back to the Markdown</li>
+<li><a href="https://jhidding.github.io/enTangleD">jhidding.github.io/enTangleD</a></li>
+</ul>
+<p><img data-src="img/logo.svg" style="border:none;padding:15pt;width:80%" /></p>
+</div>
+<div class="col">
+<p><img data-src="img/lp-colour.svg" /></p>
+</div>
+</div>
+</section><section id="bibliography" class="slide level2 unnumbered">
+<h2>Bibliography</h2>
+<div id="refs" class="references" role="doc-bibliography">
+<div id="ref-Knuth1984">
+<p>Knuth, Donald Ervin. 1984. “Literate Programming.” <em>The Computer Journal</em> 27 (2): 97–111.</p>
+</div>
+<div id="ref-Pandoc">
+<p>Pandoc Development Team. 2019. <em>Pandoc: A Universal Document Converter.</em> <a href="http://pandoc.org">http://pandoc.org</a>.</p>
+</div>
+<div id="ref-Ramsey1994">
+<p>Ramsey, Norman. 1994. “Literate Programming Simplified.” <em>IEEE Software</em> 11 (5): 97–105.</p>
+</div>
+</div>
 </section></section>
     </div>
   </div>
