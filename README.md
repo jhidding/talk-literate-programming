@@ -1,9 +1,27 @@
 ---
-title: Literate Programming
-subtitle: why it matters, and how to make it easy
+title: Literate Programming using Entangled
+subtitle: an update
 author: "Johan Hidding <div><img src=\"img/escience.png\" style=\"border: none; padding: 5pt 10pt\" width=\"40%\"></div>"
 bibliography: ref.bib
 ---
+
+# What?
+
+## Me
+
+![](img/col.svg){style="border: none;"}
+
+## Polynerd
+
+![](img/bach_proof_2.png){style="width: 40%; border: none;"}
+
+## This talk
+
+- Literate Programming: Why?
+- Notebooks (Jupyter) have limitations
+- Example technique: layered programming
+- Give Julia a swing
+- Pandoc is king
 
 # Literate Programming
 
@@ -34,6 +52,9 @@ epistemology
 programming literacy
 : Read other people's code
 
+program structure
+: Code transposition
+
 ::: {.notes}
 - Epistemology: theory of knowledge
 - When can we say we know something?
@@ -53,6 +74,7 @@ programming literacy
 - KnitR
 - Jupyter
 
+<!--
 ## Tools and workflow
 
 ::: {.container}
@@ -115,6 +137,9 @@ int main(int argc, char **argv) {
     return EXIT_SUCCESS;
 }
 ```
+-->
+
+# Demo!!!
 
 # Entangled
 
@@ -125,28 +150,10 @@ int main(int argc, char **argv) {
 - Tangle and stitch
 - Editor independent
 - Language independent
-- [jhidding.github.io/enTangleD](https://jhidding.github.io/enTangleD)
+- [entangled.github.io](https://entangled.github.io/)
 ::::
 :::: {.col}
 ![](img/entangled.jpg){style="width:60%"}
 ::::
 :::
-
-## Entangled
-
-::: {.container}
-:::: {.col}
-- Tangle: generates source code from Markdown
-- Stitch: changes are pushed back to the Markdown
-- [jhidding.github.io/enTangleD](https://jhidding.github.io/enTangleD)
-
-![](img/logo.svg){style="border:none;padding:15pt;width:80%"}
-::::
-
-:::: {.col}
-![](img/lp-colour.svg)
-::::
-:::
-
-## Bibliography
 
